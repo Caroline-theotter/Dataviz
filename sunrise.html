@@ -5,18 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sunrise</title>
+
+    <script src="snap.svg.js"></script>
 </head>
 <body>
-    <div>SOLEIL</div>   
+    <div id="soleilRouge"></div>  
+    <div id="soleilJaune"></div>
+
+   <!---- <svg id="svg"></svg> -->
+
 
 <script>
     var today = new Date();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     console.log(time);
+
+ /*   var s = Snap("#svg");
+    // Lets create big circle in the middle:
+    var bigCircle = s.circle(150, 150, 100);
+*/
 </script>
 
-<style>
 
+<style>
+#soleilRouge {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background: rgb(255, 0, 21);
+    margin: auto
+}
+
+#soleilJaune {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: rgb(255, 252, 46);
+    position: absolute;
+    left:50%;
+    top:50%;
+}
 </style>
 </body>
 </html>
