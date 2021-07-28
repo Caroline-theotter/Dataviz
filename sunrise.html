@@ -5,11 +5,15 @@
     <meta charset="UTF-8">
     <title>Sunrise</title>
     <script src="snap.svg.js"></script>
+<<<<<<< HEAD
     <script src="anime-master\lib\anime.min.js"></script>
+=======
+>>>>>>> 96d967cb2741ce7ddc15949d5934340290f67fd0
 
 </head>
 
 <body>
+<<<<<<< HEAD
     <div id="time"></div>
 
     <script>
@@ -26,6 +30,18 @@
             6000);
         */
         var vTime = document.getElementById("time");
+=======
+
+    <script>
+        var today = new Date();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        console.log(time);
+
+        var s = Snap(800, 800);
+        //Lets create big circle in the middle:
+        var sun = s.circle(600, 550, 80);
+
+>>>>>>> 96d967cb2741ce7ddc15949d5934340290f67fd0
 
         function checkTime() {
             var today = new Date();
@@ -57,6 +73,7 @@
             strokeOpacity: .3,
             strokeWidth: 10
         });
+<<<<<<< HEAD
         sun.addClass("sun");
 
 
@@ -79,6 +96,8 @@
         }
         var intervalId = setInterval(sunrise, 1000);
         */
+=======
+>>>>>>> 96d967cb2741ce7ddc15949d5934340290f67fd0
 
     </script>
 
