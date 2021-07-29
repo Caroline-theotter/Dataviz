@@ -13,46 +13,9 @@
     <div id="time"></div>
 
     <script>
-        var vitesse = 1;
-        var direction = 1;
-        let i = 0;
+         //utilisation de la librairie snap svg
         var s = Snap(1333, 803);
-        var sun = s.circle(600, 50, 80);
-        /* utilisation de la ibrairie snap snap.svg.js
-        sun.animate({
-            cy: 300,
-            r: 90
-        },
-            6000);
-        */
-        var vTime = document.getElementById("time");
-
-
-        function checkTime() {
-            var today = new Date();
-            let time = today.getHours() + ":" + today.getMinutes();
-            //console.log(time)
-            // do whatever you like here
-            console.log(time);
-            if (time == "10:32") {
-                console.log("anime");
-                anime({
-                    targets: '.sun',
-                    translateY: 400,
-                    direction: 'alternate',
-                    loop: true,
-                    autoplay: true,
-                    easing: "linear",
-                    duration: 10000
-                })
-            }
-            else {
-                setTimeout(checkTime, 5000);
-            }
-        };
-
-        //window.document.dispatchEvent(event);
-        setTimeout(checkTime, 5000);
+        var sun = s.circle(600, 85, 80);
         sun.attr({
             fill: 'yellow',
             stroke: 'orange',
@@ -61,6 +24,29 @@
         });
 
         sun.addClass("sun");
+
+        function launchAnimation() {
+            var today = new Date();
+            let time = today.getHours() + ":" + today.getMinutes();
+            if (time == "14:21") {
+                anime({                     //utilisation de la librairie anime.js
+                    targets: '.sun',
+                    translateY: 500,
+                    direction: 'alternate',
+                    loop: true,
+                    autoplay: true,
+                    easing: "linear",
+                    duration: 10000
+                })
+            }
+            else {
+                setTimeout(launchAnimation, 5000);
+            }
+        };
+
+        launchAnimation();
+
+
 
         /* 1er essai pour animer le soleil avec setInterval
         function sunrise() {
