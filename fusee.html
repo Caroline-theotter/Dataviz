@@ -6,83 +6,19 @@
     <title>Fusée</title>
     <script src="snap.svg.js"></script>
     <script src="anime-master\lib\anime.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-fusee.css">
 
 </head>
 
 <body>
 
-    <!-- CODE CSS --------------------------------------->
-    <style>
-        .moon_svg {
-            position: absolute;
-            vertical-align: bottom;
-            border: 2px, red, solid;
-            object-position: center top;
-        }
+    <!-- CODE DE LA PAGE -->
+    <p id="Decompte">LA FUSÉE DÉCOLLERA DANS   <span id="countdown"> </span></p>
+    
 
-        .fusee {
-            position: absolute;
-            top: 0px;
-        }
-
-        #notif {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            width: 125px;
-            height: 60px;
-        }
-
-        #cloche {
-            position: absolute;
-            right: 20px;
-            max-width: 50px;
-            height: auto;
-            z-index: 1;
-            display: none;
-        }
-
-        #message {
-            position: absolute;
-            height: auto;
-            border: 1px lightgrey solid;
-            right: 35px;
-            top: 48px;
-            padding: 7px;
-            background: white;
-            border-radius: 1px;
-            width: intrinsic;
-            /* Safari/WebKit utilisent un nom non-standard */
-            width: -moz-max-content;
-            /* Firefox/Gecko */
-            width: -webkit-max-content;
-            /* Chrome */
-            z-index: 0;
-            display: none;
-        }
-
-        #message:hover {
-            cursor: pointer;
-        }
-
-        #popup {
-            position: absolute;
-            right: 55px;
-            top: 120px;
-            padding-left: 10px;
-            min-width: 400px;
-            min-height: 155px;
-            background-color: white;
-            display: none;
-        }
-    </style>
-
-
-    <!-- CODE DE LA PAGE --------------------------------------->
     <div id="notif"
         onmouseleave="let msg=document.getElementById('message');msg.style.display='none';msg.style.zIndex=0;">
-        <img id="cloche" src="cloche.jpg"
+        <img id="cloche" src="cloche.png"
             onmouseover="let msg=document.getElementById('message');msg.style.display='block';msg.style.zIndex=2;" />
 
         <div id="message" onclick="let msg=document.getElementById('popup');msg.style.display='block'" ;>
@@ -92,16 +28,30 @@
 
     <div id="popup">
         <p>Le 05/08/2021</p>
-        <p>Message de : Perseverance &lt;pepersevere@hotmail.com&gt;</p>
-        <p>Sujet : C'est pas Thomas Pesquet qui pourrait faire ça!</p>
-        <h2><a href="mars-mission.html">lien vers mon insta </a></h2>
+        <p>Message de : Wall E</p>
+        <p>Sujet : Look at my holiday pics !</p>
+        <h2><a href="mars-mission.html">Click here </a></h2>
     </div>
 
-    <!-- JAVASCRIPT --------------------------------------->
+    <!-- JAVASCRIPT -->
     <script>
+
+        var countDownD = 1;
+    
+        var z = setInterval(function() {
+        var seconds = countDownD - 1;
+        document.getElementById("countdown").innerHTML = seconds + "s ";
+        countDownD = countDownD - 1;
+            if (seconds == 0) {
+            clearInterval(z);
+            document.getElementById("countdown").innerHTML = "VROOM";
+            launchAnimation();
+             }
+        }, 1000);
+
         //utilisation de la librairie snap svg
-        var s = Snap(1333, 803);
-        var moon = s.circle(600, 85, 80);
+        var s = Snap(1333, 1000);
+        var moon = s.circle(1200, 100, 80);
         moon.attr({
             fill: 'white',
             stroke: 'grey',
@@ -111,16 +61,17 @@
         moon.addClass("moon");
 
         var g = s.g()
-        let x = 100;
+        let x = 800;
         let y = window.innerHeight;
-        var fusee = g.image("fusee.svg", x, y - 100, 100, 100);
-
+        var fusee = g.image("fusee.svg", x, y-250, 200, 200);
         fusee.addClass("fusee");
 
+        
+
         function launchAnimation() {
-            var today = new Date();
-            let time = today.getHours() + ":" + today.getMinutes();
-            if (time != "16:55") {
+            //var today = new Date();
+            //let time = today.getHours() + ":" + today.getMinutes();
+            if (countDownD == 0) {
                 anime({                     //utilisation de la librairie anime.js
                     targets: '.fusee',
                     translateY: -1050,
@@ -133,29 +84,8 @@
             }
         };
 
-        setTimeout(launchAnimation, 2000);
-
-
-
-        /* 1er essai pour animer le soleil avec setInterval
-        function moonrise() {
-            //---------------
-            i++
-            if (i > 5) {
-                clearInterval(intervalId);
-            }
-            //console.log(i);
-            //--------------
-            console.log(s.style);
-            let positionmoonY;
-            let positionmoonYMax = 300;
-            positionmoonY += 1;
-            moon.style.top = (positionmoonY + direction * vitesse) + "px";
-            //
-        }
-        var intervalId = setInterval(moonrise, 1000);
-        */
-
+        launchAnimation();
+        
 
     </script>
 
