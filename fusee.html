@@ -22,21 +22,20 @@
             onmouseover="let msg=document.getElementById('message');msg.style.display='block';msg.style.zIndex=2;" />
 
         <div id="message" onclick="let msg=document.getElementById('popup');msg.style.display='block'" ;>
-            Vous avez 1 nouveau message
+            You have 1 new message
         </div>
     </div>
 
     <div id="popup">
-        <p>Le 05/08/2021</p>
-        <p>Message de : Wall E</p>
-        <p>Sujet : Look at my holiday pics !</p>
+        <p>Message from : Wall E</p>
+        <p>Subject : Feeling lonely on Mars ? Looking for HOT robots ?</p>
         <h2><a href="mars-mission.html">Click here </a></h2>
     </div>
 
     <!-- JAVASCRIPT -->
     <script>
 
-        var countDownD = 1;
+        var countDownD = 6;
     
         var z = setInterval(function() {
         var seconds = countDownD - 1;
@@ -44,8 +43,9 @@
         countDownD = countDownD - 1;
             if (seconds == 0) {
             clearInterval(z);
-            document.getElementById("countdown").innerHTML = "VROOM";
+            document.getElementById("countdown").innerHTML = "";
             launchAnimation();
+            document.getElementById("Decompte").innerHTML ="";
              }
         }, 1000);
 
@@ -69,8 +69,6 @@
         
 
         function launchAnimation() {
-            //var today = new Date();
-            //let time = today.getHours() + ":" + today.getMinutes();
             if (countDownD == 0) {
                 anime({                     //utilisation de la librairie anime.js
                     targets: '.fusee',
