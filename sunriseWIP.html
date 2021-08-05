@@ -14,7 +14,7 @@
     <div id="time"></div>
 
     <script>
-         //utilisation de la librairie snap svg
+        //utilisation de la librairie snap svg
         var s = Snap(1333, 803);
         var sun = s.circle(600, 85, 80);
         sun.attr({
@@ -23,8 +23,10 @@
             strokeOpacity: .3,
             strokeWidth: 10
         });
-
         sun.addClass("sun");
+
+        var g = s.g()
+        var fusee = g.image("fusee.svg", 0, 0, 100, 100);
 
         function launchAnimation() {
             var today = new Date();
